@@ -1,0 +1,14 @@
+cat << EOF > .gitignore
+# Visual Studio
+.vs/
+
+# Build
+bin/
+obj/
+
+# User-specific
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+EOF
