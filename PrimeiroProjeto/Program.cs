@@ -85,8 +85,12 @@ void mostrarBanda(){
     Console.WriteLine("Lista de Bandas");
     Console.WriteLine("*****************");
 
-    for (int i = 0; i < listaDeBandas.Count; i++){
-        Console.WriteLine($"Banda: {listaDeBandas[i]}");
+    //for (int i = 0; i < listaDeBandas.Count; i++){
+    // Console.WriteLine($"Banda: {listaDeBandas[i]}");
+    // }
+
+    foreach (string banda in listaDeBandas) {
+        Console.WriteLine($"Banda: {banda}");
     }
 
     Console.WriteLine("\nAperte a tecla X para sair");
