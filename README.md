@@ -12,9 +12,6 @@ funcionalidades comuns de plataformas de música.
 ## 🛠️ Tecnologias utilizadas
 - C#
 - .NET
-- HTML5
-- CSS3
-- JavaScript
 - Git
 
 ## ▶️ Como executar
