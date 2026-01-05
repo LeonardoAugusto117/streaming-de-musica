@@ -48,7 +48,7 @@ void exibirMenu()
             avaliarUmaBanda();
             break;
         case 4:
-            Console.WriteLine("Opção escolhida foi: " + opcaoEscolhidaNumerica);
+            exibirMedia();
             break;
         case 0:
             Console.WriteLine("Tchau tchau :)");
@@ -119,8 +119,8 @@ void ExibirTituloDaOpcao(string titulo)
     Console.WriteLine(asteriscos + "\n");
 }
 
-void avaliarUmaBanda() {
-    
+void avaliarUmaBanda(){
+
     Console.Clear();
     // Digite qual banda deseja avaliar
     ExibirTituloDaOpcao("Avaliar Banda");
@@ -128,7 +128,13 @@ void avaliarUmaBanda() {
     string nomeDaBanda = Console.ReadLine()!;
     if (bandasRegistradas.ContainsKey(nomeDaBanda))
     {
-
+        Console.Write($"Qual a nota que a banda {nomeDaBanda} merece: ");
+        int nota = int.Parse(Console.ReadLine()!);
+        bandasRegistradas[nomeDaBanda].Add(nota);
+        Console.WriteLine($"\nA nota {nota} foi registrada com sucesso para a banda {nomeDaBanda}");
+        Thread.Sleep(2000);
+        Console.Clear();
+        exibirMenu();
     }
     else
     {
@@ -139,13 +145,32 @@ void avaliarUmaBanda() {
         exibirMenu();
 
     }
-
-    // Se a banda existir no dicionario >> atribuir uma nota
-
-    // Senão, volta ao menu principal
 }
 
+void exibirMedia()
+{
+    Console.Clear();
+    ExibirTituloDaOpcao("Exibir média da banda");
+    Console.Write("Digite o nome da banda que deseja exibir a média: ");
+    string nomeDaBanda = Console.ReadLine()!;
+    if (bandasRegistradas.ContainsKey(nomeDaBanda))
+    {
+        List<int> notasDaBanda = bandasRegistradas[nomeDaBanda];
+        Console.WriteLine($"\nA média da banda {nomeDaBanda} é {notasDaBanda.Average()}.");
+        Console.WriteLine("Digite uma tecla para votar ao menu principal");
+        Console.ReadKey();
+        Console.Clear();
+        exibirMenu();
 
-
+    }
+    else
+    {
+        Console.WriteLine($"\nA banda {nomeDaBanda} não foi encontrada!");
+        Console.WriteLine("Digite uma tecla para voltar ao menu principal");
+        Console.ReadKey();
+        Console.Clear();
+        exibirMenu();
+    }
+}
 
 exibirMenu();
